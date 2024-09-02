@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="/styles.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Plus and Minus</title>
+    </head>
+    <body>
+        <div id="app" class="relative">
+            <div id="layout" class="flex h-full w-full flex-1 flex-col">
+                <iframe
+                    class="h-[50%] w-full"
+                    referrerpolicy="origin"
+                    src="https://embed.nicovideo.jp/watch/sm44018058?jsapi=1&playerId=plus"
+                ></iframe>
+                <iframe
+                    class="h-[50%] w-full"
+                    referrerpolicy="origin"
+                    src="https://embed.nicovideo.jp/watch/sm44018097?jsapi=1&playerId=minus"
+                ></iframe>
+            </div>
+            <div
+                class="absolute bottom-0 right-0 top-0 my-auto flex h-fit flex-col gap-1 rounded-lg rounded-r-none border bg-white p-1 text-slate-700 shadow"
+            >
+                <button
+                    class="flex items-center justify-center rounded-md border border-slate-200/60 p-4 shadow-sm"
+                    id="playOffset"
+                >
+                    <i data-lucide="redo2"></i>
+                </button>
+                <button
+                    class="flex hidden items-center justify-center rounded-md border border-slate-200/60 p-4 shadow-sm"
+                    id="play"
+                >
+                    <i data-lucide="play"></i>
+                </button>
+                <button
+                    class="flex items-center justify-center rounded-md border border-slate-200/60 p-4 shadow-sm"
+                    id="pause"
+                >
+                    <i data-lucide="pause"></i>
+                </button>
+                <button
+                    class="flex items-center justify-center rounded-md border border-slate-200/60 p-4 shadow-sm"
+                    id="seekTo"
+                >
+                    Seek
+                </button>
+                <button
+                    class="flex hidden items-center justify-center rounded-md border border-slate-200/60 p-4 shadow-sm"
+                    id="layout-vertical"
+                >
+                    <i data-lucide="rows2"></i>
+                </button>
+                <button
+                    class="flex items-center justify-center rounded-md border border-slate-200/60 p-4 shadow-sm"
+                    id="layout-horizontal"
+                >
+                    <i data-lucide="columns2"></i>
+                </button>
+                <button
+                    id="about"
+                    class="flex items-center justify-center rounded-md border border-slate-200/60 p-4 shadow-sm"
+                >
+                    <i data-lucide="circle-help"></i>
+                </button>
+            </div>
+        </div>
+
+        <dialog
+            id="about-dialog"
+            class="max-w-96 rounded-lg border border-slate-200/60 bg-slate-50 shadow-lg backdrop:bg-black/80"
+        >
+            <div class="flex flex-col gap-4 p-4 py-6">
+                <div class="flex items-center justify-between">
+                    <h1 class="font-serif text-2xl font-extrabold">
+                        Plus and Minus
+                    </h1>
+                    <button
+                        id="about-close"
+                        class="absolute right-2 top-2 p-2 text-slate-400"
+                    >
+                        <i data-lucide="x"></i>
+                    </button>
+                </div>
+                <p>
+                    This web app is a demo of a Nicovideo embed player with
+                    custom synchronization.
+                </p>
+                <p>
+                    At the moment, it might not work as expected on devices
+                    other than PCs. Additionally, seeking for offset playback
+                    might not function properly. Pressing the
+                    <button
+                        class="inline-flex flex-shrink-0 items-center justify-center rounded-md border border-slate-200/60 p-4 shadow-sm"
+                        alt="Play with offset"
+                    >
+                        <i data-lucide="redo2"></i>
+                    </button>
+                    button twice could potentially solve the issue.
+                </p>
+
+                <p>
+                    Videos by
+                    <a href="https://www.nicovideo.jp/user/55085762"
+                        >Mix BadGun</a
+                    >'s great work.
+                </p>
+                <p>
+                    The source code is available on
+                    <a href="https://github.com/eai04191/plus-and-minus"
+                        >GitHub</a
+                    >
+                </p>
+            </div>
+        </dialog>
+        <script type="module" src="/src/main.ts"></script>
+    </body>
+</html>
